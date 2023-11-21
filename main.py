@@ -3,7 +3,7 @@ from background import keep_alive #импорт функции для подде
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import time
 
-updater = Updater(token='6659951688:AAG8-SGWwSOrkFmzTvPMYpUBbYtInDvNwl4',
+updater = Updater(token='YOUR_TOKEN',
                   use_context=True)
 dispatcher = updater.dispatcher
 
