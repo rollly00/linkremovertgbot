@@ -2,8 +2,9 @@ import os
 from background import keep_alive #импорт функции для поддержки работоспособности
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import time
+token = os.environ.get('TOKEN')
 
-updater = Updater(token='YOUR_TOKEN',
+updater = Updater(token=token,
                   use_context=True)
 dispatcher = updater.dispatcher
 
