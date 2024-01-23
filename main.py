@@ -18,12 +18,19 @@ def start(update, context):
 def delete_links(update, context):
     message = update.message
     if message and message.text:
+        # Проверка по запрещенным словам
         for word in wrds:
             if word in message.text:
                 time.sleep(5)
                 context.bot.delete_message(chat_id=update.effective_chat.id,
                                            message_id=update.message.message_id)
-                break  # выход из цикла после удаления первого найденного слова
+                return  # Выход из функции после удаления сообщения
+
+        # Проверка по каналу отправителя
+        if message.forward_from_chat and message.forward_from_chat.username == 'Поздняков 3.0':
+            time.sleep(5)
+            context.bot.delete_message(chat_id=update.effective_chat.id,
+                                       message_id=update.message.message_id)
 
 
 start_handler = CommandHandler('start', start)
