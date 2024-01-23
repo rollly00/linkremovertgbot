@@ -16,11 +16,14 @@ def start(update, context):
 
 
 def delete_links(update, context):
-  message = update.message
-  if message and message.text and any(word in message.text for word in wrds):
-    time.sleep(5)
-    context.bot.delete_message(chat_id=update.effective_chat.id,
-                               message_id=update.message.message_id)
+    message = update.message
+    if message and message.text:
+        for word in wrds:
+            if word in message.text:
+                time.sleep(5)
+                context.bot.delete_message(chat_id=update.effective_chat.id,
+                                           message_id=update.message.message_id)
+                break  # выход из цикла после удаления первого найденного слова
 
 
 start_handler = CommandHandler('start', start)
