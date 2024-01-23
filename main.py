@@ -8,7 +8,7 @@ updater = Updater(token=token,
                   use_context=True)
 dispatcher = updater.dispatcher
 
-wrds = ['tiktok.com', 'instagram.com']
+wrds = ['tiktok.com', 'instagram.com', 'русню', 'русня', 'резать','ножи','точим','точу','нож']
 
 
 def start(update, context):
